@@ -27,3 +27,4 @@ ENV ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dedede,bg=#9c9c9c,bold,underline"
 ENTRYPOINT ["zsh"]
 
 #CMD ["zsh"]
+#add new comment
