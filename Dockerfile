@@ -21,12 +21,11 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 ENV ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dedede,bg=#9c9c9c,bold,underline"
 
-ADD huge_directory/install.exe somedir/
+ADD huge_directory/file.txt somedir/
 
 #эти команды нужны для старта они выполняются с самого начала
 
 #2 варианта 1 записи
 #ENTRYPOINT zsh
-ENTRYPOINT ["zsh"]
-
-#CMD ["hello.sh"]
+ENTRYPOINT ["sh", "hello.sh"]
+CMD ["zsh"]
