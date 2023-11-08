@@ -3,12 +3,13 @@ FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install -y vim wget curl git
 
+
 WORKDIR /home/timur
 
 #COPY <наш компьютер> <контейнер>
 COPY ./script.sh ./script.sh
 
-#создаем инструкцию для создания файла прям в контейнере
+#создаем инструкцию для создания файла и запись в него прям в контейнере
 RUN touch hello.sh && echo "echo 'Hello from container'" > hello.sh && touch file.sh && echo  "echo 'It is information from file'" > file.sh
 
 
@@ -20,11 +21,12 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 ENV ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dedede,bg=#9c9c9c,bold,underline"
 
+ADD huge_directory/install.exe somedir/
+
 #эти команды нужны для старта они выполняются с самого начала
 
 #2 варианта 1 записи
 #ENTRYPOINT zsh
 ENTRYPOINT ["zsh"]
 
-#CMD ["zsh"]
-#add new comment
+#CMD ["hello.sh"]
